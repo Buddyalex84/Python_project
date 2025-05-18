@@ -1,0 +1,14 @@
+===== Cafe Order Summary =====
+Customer Name: ram
+Order Time: 19-05-2025 00:51
+
+Dal Makhani x7 = Rs. 1260
+Peppy Paneer x4 = Rs. 1400
+
+Subtotal: Rs. 2660
+GST (5%): Rs. 133.00
+Discount (10%): Rs. 266.00
+Total Amount to Pay: Rs. 2527.00
+Payment Method: UPI
+Thank you for visiting our cafe!
+
