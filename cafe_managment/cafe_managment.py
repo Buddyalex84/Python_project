@@ -130,6 +130,23 @@ def cafe_management():
         print("No items ordered. Exiting.")
         return
 
+    # ==== VOUCHER SYSTEM ADDED HERE ====
+    voucher_codes = {
+        "SAVE50": 50,     # Rs. 50 off
+        "DISC100": 100,   # Rs. 100 off
+        "WELCOME20": 20,  # Rs. 20 off
+    }
+
+    voucher_discount = 0
+    has_voucher = input("Do you have a voucher? (yes/no): ").strip().lower()
+    if has_voucher == "yes":
+        entered_voucher = input("Enter voucher code: ").strip().upper()
+        if entered_voucher in voucher_codes:
+            voucher_discount = voucher_codes[entered_voucher]
+            print(f"Voucher applied! You get Rs. {voucher_discount} off.")
+        else:
+            print("Invalid voucher code.")
+
     # Payment method
     print("\nSelect Payment Method:")
     print("1. Cash\n2. Card\n3. UPI")
@@ -156,7 +173,15 @@ def cafe_management():
         discount = total_bill * 0.10
         print(f"Discount (10%): Rs. {discount:.2f}")
 
-    final_total = total_bill + gst - discount
+    # Apply voucher discount here after GST and other discount calculations
+    # Voucher discount applies after GST and normal discount (you can adjust logic as needed)
+    final_total = total_bill + gst - discount - voucher_discount
+    if final_total < 0:
+        final_total = 0  # avoid negative totals
+
+    if voucher_discount > 0:
+        print(f"Voucher Discount: Rs. {voucher_discount}")
+
     print(f"Total Amount to Pay: Rs. {final_total:.2f}")
 
     print(f"Payment Method: {payment_method}")
@@ -174,6 +199,8 @@ def cafe_management():
             file.write(f"GST (5%): Rs. {gst:.2f}\n")
             if discount > 0:
                 file.write(f"Discount (10%): Rs. {discount:.2f}\n")
+            if voucher_discount > 0:
+                file.write(f"Voucher Discount: Rs. {voucher_discount}\n")
             file.write(f"Total Amount to Pay: Rs. {final_total:.2f}\n")
             file.write(f"Payment Method: {payment_method}\n")
             file.write("Thank you for visiting our cafe!\n\n")
@@ -181,3 +208,4 @@ def cafe_management():
 
 if __name__ == "__main__":
     cafe_management()
+

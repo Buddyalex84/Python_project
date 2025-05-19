@@ -36,3 +36,30 @@ Total Amount to Pay: Rs. 2527.00
 Payment Method: UPI
 Thank you for visiting our cafe!
 
+===== Cafe Order Summary =====
+Customer Name: ansh verma
+Order Time: 19-05-2025 20:45
+
+Veg Biryani x4 = Rs. 800
+Classic Cold Coffee x4 = Rs. 480
+
+Subtotal: Rs. 1280
+GST (5%): Rs. 64.00
+Discount (10%): Rs. 128.00
+Total Amount to Pay: Rs. 1216.00
+Payment Method: Cash
+Thank you for visiting our cafe!
+
+===== Cafe Order Summary =====
+Customer Name: ansh
+Order Time: 19-05-2025 21:35
+
+Veg Biryani x4 = Rs. 800
+
+Subtotal: Rs. 800
+GST (5%): Rs. 40.00
+Voucher Discount: Rs. 50
+Total Amount to Pay: Rs. 790.00
+Payment Method: Cash
+Thank you for visiting our cafe!
+
