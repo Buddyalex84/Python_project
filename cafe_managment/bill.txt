@@ -1,0 +1,12 @@
+===== Cafe Order Summary =====
+Customer Name: ansh verma
+Order Time: 28-05-2025 23:25
+
+Veg Biryani x4 = Rs. 800
+
+Subtotal: Rs. 800
+GST (5%): Rs. 40.00
+Total Amount to Pay: Rs. 840.00
+Payment Method: Cash
+Thank you for visiting our cafe!
+

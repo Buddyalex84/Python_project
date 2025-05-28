@@ -1,5 +1,7 @@
 import os
 from datetime import datetime
+from PIL import Image
+import qrcode
 
 def cafe_management():
     def admin_portal():
@@ -29,7 +31,6 @@ def cafe_management():
                         add_bill = False
                         for line in f:
                             if line.startswith("Order Time:"):
-                                # Check if this bill is from today
                                 add_bill = today in line
                             if add_bill and line.startswith("Total Amount to Pay:"):
                                 amount = float(line.strip().split(": Rs. ")[-1])
@@ -130,64 +131,75 @@ def cafe_management():
         print("No items ordered. Exiting.")
         return
 
-    # ==== VOUCHER SYSTEM ADDED HERE ====
-    voucher_codes = {
-        "SAVE50": 50,     # Rs. 50 off
-        "DISC100": 100,   # Rs. 100 off
-        "WELCOME20": 20,  # Rs. 20 off
-    }
+    gst = total_bill * 0.05
+    discount = total_bill * 0.10 if total_bill >= 1000 else 0
+    final_total = total_bill + gst - discount
 
-    voucher_discount = 0
-    has_voucher = input("Do you have a voucher? (yes/no): ").strip().lower()
-    if has_voucher == "yes":
-        entered_voucher = input("Enter voucher code: ").strip().upper()
-        if entered_voucher in voucher_codes:
-            voucher_discount = voucher_codes[entered_voucher]
-            print(f"Voucher applied! You get Rs. {voucher_discount} off.")
+    payment_method = ""
+    while True:
+        print("\nSelect Payment Method:")
+        print("1. Cash\n2. Card\n3. UPI")
+        payment_option = input("Enter choice (1/2/3): ")
+
+        payment_modes = {"1": "Cash", "2": "Card", "3": "UPI"}
+        payment_method = payment_modes.get(payment_option, "Unknown")
+
+        if payment_option not in ["1", "2", "3"]:
+            print("Invalid payment option. Try again.")
+            continue
+
+        if payment_option == "3":
+            print("\nPlease scan this QR to pay via UPI (PhonePe):")
+
+            upi_id = "anshv5837@ybl"  # Change to your actual UPI ID
+            payee_name = "Ansh's Cafe"
+            upi_data = f"upi://pay?pa={upi_id}&pn={payee_name}&am={final_total:.2f}&cu=INR"
+
+            qr = qrcode.QRCode()
+            qr.add_data(upi_data)
+            qr.make()
+            qr.print_ascii(invert=True)
+
+            img = qr.make_image(fill_color="black", back_color="white")
+            img.save("upi_payment_qr.png")
+            try:
+                if os.name == 'nt':
+                    os.startfile("upi_payment_qr.png")
+                else:
+                    os.system("open upi_payment_qr.png")
+            except:
+                pass
+
+            while True:
+                confirm = input("\nIs payment completed? (yes/no): ").strip().lower()
+                if confirm == "yes":
+                    print("✅ Payment received.")
+                    break
+                elif confirm == "no":
+                    print("🔁 Returning to payment options...")
+                    break
+                else:
+                    print("Please type 'yes' or 'no'.")
+
+            if confirm == "yes":
+                break
         else:
-            print("Invalid voucher code.")
+            break
 
-    # Payment method
-    print("\nSelect Payment Method:")
-    print("1. Cash\n2. Card\n3. UPI")
-    payment_option = input("Enter choice (1/2/3): ")
-
-    payment_modes = {"1": "Cash", "2": "Card", "3": "UPI"}
-    payment_method = payment_modes.get(payment_option, "Unknown")
-
-    # Bill summary
+    # Print summary and save
     print("\n===== Cafe Order Summary =====")
     print(f"Customer Name: {name}")
     print(f"Order Time: {order_time}\n")
-
     for item, price, qty in order:
         print(f"{item} x{qty} = Rs. {price * qty}")
-
     print(f"\nSubtotal: Rs. {total_bill}")
-
-    gst = total_bill * 0.05
     print(f"GST (5%): Rs. {gst:.2f}")
-
-    discount = 0
-    if total_bill >= 1000:
-        discount = total_bill * 0.10
+    if discount:
         print(f"Discount (10%): Rs. {discount:.2f}")
-
-    # Apply voucher discount here after GST and other discount calculations
-    # Voucher discount applies after GST and normal discount (you can adjust logic as needed)
-    final_total = total_bill + gst - discount - voucher_discount
-    if final_total < 0:
-        final_total = 0  # avoid negative totals
-
-    if voucher_discount > 0:
-        print(f"Voucher Discount: Rs. {voucher_discount}")
-
     print(f"Total Amount to Pay: Rs. {final_total:.2f}")
-
     print(f"Payment Method: {payment_method}")
-    print("Thank you for visiting our cafe!\n")
+    print("🧾 Thank you for visiting our cafe!\n")
 
-    # Save to files
     with open("bill.txt", "w") as f, open("bill_history.txt", "a") as history:
         for file in (f, history):
             file.write("===== Cafe Order Summary =====\n")
@@ -199,13 +211,9 @@ def cafe_management():
             file.write(f"GST (5%): Rs. {gst:.2f}\n")
             if discount > 0:
                 file.write(f"Discount (10%): Rs. {discount:.2f}\n")
-            if voucher_discount > 0:
-                file.write(f"Voucher Discount: Rs. {voucher_discount}\n")
             file.write(f"Total Amount to Pay: Rs. {final_total:.2f}\n")
             file.write(f"Payment Method: {payment_method}\n")
             file.write("Thank you for visiting our cafe!\n\n")
 
-
 if __name__ == "__main__":
     cafe_management()
-

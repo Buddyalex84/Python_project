@@ -1,0 +1,120 @@
+===== Cafe Order Summary =====
+Customer Name: ansh verma
+Order Time: 28-05-2025 22:51
+
+Classic Cold Coffee x4 = Rs. 480
+Paneer Butter Masala x4 = Rs. 1000
+
+Subtotal: Rs. 1480
+GST (5%): Rs. 74.00
+Discount (10%): Rs. 148.00
+Total Amount to Pay: Rs. 1406.00
+Payment Method: UPI
+Thank you for visiting our cafe!
+
+===== Cafe Order Summary =====
+Customer Name: ansh verma
+Order Time: 28-05-2025 23:00
+
+Veg Biryani x4 = Rs. 800
+Hazelnut Coffee x3 = Rs. 510
+
+Subtotal: Rs. 1310
+GST (5%): Rs. 65.50
+Discount (10%): Rs. 131.00
+Total Amount to Pay: Rs. 1244.50
+Payment Method: UPI
+Thank you for visiting our cafe!
+
+===== Cafe Order Summary =====
+Customer Name: ansh verma
+Order Time: 28-05-2025 23:07
+
+Veg Biryani x4 = Rs. 800
+Veg Club Sandwich x4 = Rs. 600
+
+Subtotal: Rs. 1400
+GST (5%): Rs. 70.00
+Discount (10%): Rs. 140.00
+Total Amount to Pay: Rs. 1330.00
+Payment Method: UPI
+Thank you for visiting our cafe!
+
+===== Cafe Order Summary =====
+Customer Name: ansh verma
+Order Time: 28-05-2025 23:10
+
+Veg Biryani x4 = Rs. 800
+Classic Cold Coffee x4 = Rs. 480
+
+Subtotal: Rs. 1280
+GST (5%): Rs. 64.00
+Discount (10%): Rs. 128.00
+Total Amount to Pay: Rs. 1216.00
+Payment Method: UPI
+Thank you for visiting our cafe!
+
+===== Cafe Order Summary =====
+Customer Name: ansh verma
+Order Time: 28-05-2025 23:12
+
+Veg Biryani x4 = Rs. 800
+Classic Cold Coffee x4 = Rs. 480
+
+Subtotal: Rs. 1280
+GST (5%): Rs. 64.00
+Discount (10%): Rs. 128.00
+Total Amount to Pay: Rs. 1216.00
+Payment Method: UPI
+Thank you for visiting our cafe!
+
+===== Cafe Order Summary =====
+Customer Name: ansh verma
+Order Time: 28-05-2025 23:12
+
+Mocha x1 = Rs. 150
+
+Subtotal: Rs. 150
+GST (5%): Rs. 7.50
+Total Amount to Pay: Rs. 157.50
+Payment Method: UPI
+Thank you for visiting our cafe!
+
+===== Cafe Order Summary =====
+Customer Name: ansh verma
+Order Time: 28-05-2025 23:20
+
+Veg Biryani x4 = Rs. 800
+Veg Club Sandwich x4 = Rs. 600
+
+Subtotal: Rs. 1400
+GST (5%): Rs. 70.00
+Discount (10%): Rs. 140.00
+Total Amount to Pay: Rs. 1330.00
+Payment Method: UPI
+Thank you for visiting our cafe!
+
+===== Cafe Order Summary =====
+Customer Name: ansh verma
+Order Time: 28-05-2025 23:22
+
+Cheese Sandwich x1 = Rs. 100
+
+Subtotal: Rs. 100
+GST (5%): Rs. 5.00
+Total Amount to Pay: Rs. 105.00
+Payment Method: UPI
+Thank you for visiting our cafe!
+
+===== Cafe Order Summary =====
+Customer Name: ansh verma
+Order Time: 28-05-2025 23:25
+
+Veg Biryani x4 = Rs. 800
+
+Subtotal: Rs. 800
+GST (5%): Rs. 40.00
+Total Amount to Pay: Rs. 840.00
+Payment Method: Cash
+Thank you for visiting our cafe!
+
