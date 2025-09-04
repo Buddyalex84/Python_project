@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ car.model }} - BMW Showroom{% endblock %}
+
+{% block content %}
+<div class="car-details-container">
+    <div class="car-details-header">
+        <a href="{{ url_for('index') }}" class="back-button">&larr; Back to All Models</a>
+        <h2>{{ car.model }}</h2>
+    </div>
+
+    <div class="car-details-main">
+        <div class="car-details-image">
+            <img src="/{{ car.image }}" alt="{{ car.model }}" onerror="this.src='{{ car.fallback_image }}'">
+        </div>
+
+        <div class="car-details-info">
+            <div class="car-description">
+                <h3>Overview</h3>
+                <p>{{ car.description }}</p>
+            </div>
+
+            <div class="car-specifications">
+                <h3>Specifications</h3>
+                <table>
+                    {% for key, value in car.specifications.items() %}
+                    <tr>
+                        <td class="spec-name">{{ key|replace('_', ' ')|title }}</td>
+                        <td class="spec-value">{{ value }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="car-colors">
+                <h3>Available Colors</h3>
+                <div class="color-swatches">
+                    {% for color in car.colors %}
+                    <div class="color-swatch">
+                        <div class="swatch" style="background-color: {{ color.code }}; border: 1px solid #ccc;"></div>
+                        <span class="color-name">{{ color.name }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="car-price-list">
+        <h3>Price List (Ex-showroom, India)</h3>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Variant</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for variant in car.variants %}
+                <tr>
+                    <td>{{ variant.name }}</td>
+                    <td>{{ variant.price_inr }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p class="price-note">* Prices are ex-showroom and subject to change without prior notice. Additional charges like registration, insurance, and road tax will apply.</p>
+    </div>
+
+    <div class="car-cta">
+        <h3>Experience the {{ car.model }}</h3>
+        <div class="cta-buttons">
+            <button class="btn btn-primary">Book a Test Drive</button>
+            <button class="btn btn-secondary">Download Brochure</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

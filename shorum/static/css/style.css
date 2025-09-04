@@ -1,0 +1,399 @@
+/* BMW Showroom CSS */
+
+/* Global Styles */
+:root {
+    --bmw-blue: #0066B1;
+    --bmw-light-blue: #1c69d4;
+    --bmw-dark-blue: #003366;
+    --bmw-white: #FFFFFF;
+    --bmw-black: #000000;
+    --bmw-gray: #666666;
+    --bmw-light-gray: #f2f2f2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--bmw-black);
+    background-color: var(--bmw-white);
+}
+
+a {
+    text-decoration: none;
+    color: var(--bmw-blue);
+}
+
+ul {
+    list-style: none;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--bmw-blue);
+    color: var(--bmw-white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--bmw-light-blue);
+}
+
+.hero-content .btn {
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    background-color: var(--bmw-blue);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content .btn:hover {
+    background-color: var(--bmw-light-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.btn-secondary {
+    background-color: var(--bmw-white);
+    color: var(--bmw-blue);
+    border: 1px solid var(--bmw-blue);
+}
+
+.btn-secondary:hover {
+    background-color: var(--bmw-light-gray);
+}
+
+/* Header */
+header {
+    background-color: var(--bmw-black);
+    color: var(--bmw-white);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+    margin-right: 1rem;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+nav ul {
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: var(--bmw-white);
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    color: var(--bmw-light-blue);
+}
+
+/* Hero Section */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('../images/bmw_m5_black_bg.jpg');
+    /* Fallback image in case our local image doesn't load */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.6)), url('https://www.bmw.in/content/dam/bmw/common/all-models/m-series/m5-sedan/2023/highlights/bmw-5-series-m-automobiles-m5-cs-gallery-image-01.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--bmw-white);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    animation: fadeIn 1s ease-in-out;
+    z-index: 1;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Car Listing */
+.car-listing {
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.car-listing h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.car-listing > p {
+    margin-bottom: 2rem;
+    color: var(--bmw-gray);
+}
+
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.car-card {
+    background-color: var(--bmw-white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.car-image img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.car-info {
+    padding: 1.5rem;
+}
+
+.car-info h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.car-price {
+    color: var(--bmw-gray);
+    margin-bottom: 1rem;
+}
+
+/* Car Details */
+.car-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.car-details-header {
+    margin-bottom: 2rem;
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.car-details-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.car-details-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.car-details-info > div {
+    margin-bottom: 2rem;
+}
+
+.car-details-info h3 {
+    margin-bottom: 1rem;
+    color: var(--bmw-blue);
+}
+
+.car-specifications table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.car-specifications td {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--bmw-light-gray);
+}
+
+.spec-name {
+    font-weight: 500;
+    width: 40%;
+}
+
+.color-swatches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.color-swatch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+}
+
+.swatch {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.color-name {
+    font-size: 0.85rem;
+    text-align: center;
+    color: var(--bmw-gray);
+}
+
+.car-price-list {
+    margin-bottom: 3rem;
+}
+
+.price-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.price-table th, .price-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--bmw-light-gray);
+}
+
+.price-table th {
+    background-color: var(--bmw-light-gray);
+    font-weight: 500;
+}
+
+.price-note {
+    font-size: 0.9rem;
+    color: var(--bmw-gray);
+    font-style: italic;
+}
+
+.car-cta {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--bmw-light-gray);
+    border-radius: 8px;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--bmw-black);
+    color: var(--bmw-white);
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .car-details-main {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+
+    header {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        margin-top: 1rem;
+    }
+
+    nav ul li {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+    }
+}

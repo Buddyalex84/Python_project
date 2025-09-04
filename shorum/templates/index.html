@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}BMW Showroom - All Models{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <h2>BMW M5 Competition</h2>
+        <p>Experience the pinnacle of performance and luxury</p>
+        <a href="{{ url_for('car_details', car_id=5) }}" class="btn">Explore M5</a>
+    </div>
+</section>
+
+<section class="car-listing">
+    <h2>Our BMW Models</h2>
+    <p>Select a model to view detailed specifications and Indian price list</p>
+
+    <div class="car-grid">
+        {% for car in cars %}
+        <div class="car-card">
+            <div class="car-image">
+                <img src="/{{ car.image }}" alt="{{ car.model }}" onerror="this.src='{{ car.fallback_image }}'">
+            </div>
+            <div class="car-info">
+                <h3>{{ car.model }}</h3>
+                <p class="car-price">Starting from {{ car.variants[0].price_inr }}</p>
+                <a href="{{ url_for('car_details', car_id=car.id) }}" class="btn">View Details</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
